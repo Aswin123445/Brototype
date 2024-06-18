@@ -1,0 +1,23 @@
+.hi{
+   height: 100px;
+   width: 100px;
+   border: 2px solid black;
+}
+#div2{
+    
+    margin: 0 auto;
+    height: 40px;
+    background-color: rgba(33, 33, 33, 0.907);
+    align-self: center;
+    border: 7px solid white;
+    padding-top: 5px;
+    border-radius: 50;  
+}
+footer{
+    background-color: antiquewhite;
+    color: black;
+    text-align: center;
+}
+a{
+    margin-right: 300px;
+}

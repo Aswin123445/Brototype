@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    text-transform: capitalize;
+}
+p{
+    font-style:times new roman;
+    font-size: 30px;
+}
+#outer{
+    font-size: 25px;
+}
+#inner{
+    font-size: 10px;
+}

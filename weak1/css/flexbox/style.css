@@ -1,0 +1,33 @@
+#heading{
+    text-align: center;
+    font-size: 50px;
+}
+#dev1{
+    height: 600px;
+    width: 600px;
+    border: 3px solid black;
+    display:flex ;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div{
+    border: 3px solid green;
+    height: 50px;
+    width: 200px;
+}
+#dev2{
+   background-color: aqua;
+}
+#dev3{
+    background-color: yellow;
+ }
+ #dev4{
+    background-color: magenta;
+ }
+ #dev5{
+    background-color: salmon;
+ }
+ #dev6{
+    background-color: gold;
+ }

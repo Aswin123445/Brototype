@@ -1,0 +1,49 @@
+#box1{
+  height: 200px;
+  width: 100px;
+  background-color: red;
+  padding-top: 1%;
+  padding-left: .5%;
+  font-size: 13px;
+}
+#box2{
+  font-size: 2em;
+  height: 80px;
+  width: 60%;
+  background-color: yellow;
+}
+#box3{
+    font-size: 2rem;
+    height: 40px;
+    width: 70%;
+    background-color: yellow;
+  }
+.h11{
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    display: inline-block;
+    background-color: aqua;
+    margin-right: 20px;
+}
+#as1{
+    position:static;
+    background-image: url(son.jpg);
+    background-size:cover;
+    top: 10px;/* this has no effect because postiton is static*/
+}
+#as2{
+    position: relative;
+    top: 10px;
+    right: 20px;
+    /*this have effect on top  right propertys as it is relative*/
+}
+#as3{
+    position: absolute;
+    top: 20px;
+}
+#as4{
+    position:fixed;
+    right: 10px;
+    /*know the right keyword come to effect with the browser*/
+}
