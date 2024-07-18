@@ -42,8 +42,9 @@
         </div>
     </header>
     <div class="down-section">
+        <div class="repositt"></div>
         <div class="repo1"></div>
-        <div class="repo">
+        <div class="repo" id="repsit">
             <div id="row1">
                 <div id="row11">Top Repositories</div>
                 <div id="row12">
@@ -62,7 +63,19 @@
                     </li>
                     <li>
                         <div id="listprofile"></div>
-                        Aswin123445/java_learning
+                        Aswin123445/Git_learning
+                    </li>
+                    <li>
+                        <div id="listprofile"></div>
+                        Aswin123445/Amitifier
+                    </li>
+                    <li>
+                        <div id="listprofile"></div>
+                        Aswin123445/Spring_learning
+                    </li>
+                    <li>
+                        <div id="listprofile"></div>
+                        Aswin123445/Alarm_clock
                     </li>
                     <li>
                         <div id="listprofile"></div>
@@ -70,31 +83,19 @@
                     </li>
                     <li>
                         <div id="listprofile"></div>
-                        Aswin123445/java_learning
+                        Aswin123445/ecommerce app
                     </li>
                     <li>
                         <div id="listprofile"></div>
-                        Aswin123445/java_learning
+                        Aswin123445/Python2024
                     </li>
                     <li>
                         <div id="listprofile"></div>
-                        Aswin123445/java_learning
+                        Aswin123445/data_science
                     </li>
                     <li>
                         <div id="listprofile"></div>
-                        Aswin123445/java_learning
-                    </li>
-                    <li>
-                        <div id="listprofile"></div>
-                        Aswin123445/java_learning
-                    </li>
-                    <li>
-                        <div id="listprofile"></div>
-                        Aswin123445/java_learning
-                    </li>
-                    <li>
-                        <div id="listprofile"></div>
-                        Aswin123445/java_learning
+                        Aswin123445/PlayIt
                     </li>
                     <li>
                         <div id="listprofile"></div>
@@ -374,5 +375,21 @@
         </div>
     </div>
     </div>
+    
+    <script>
+        const stickyDiv = document.getElementById('repsit');
+        const stickyThreshold = 64; // Adjust threshold as needed (in pixels)
+        
+        window.addEventListener('scroll', function() {
+          const scrollPosition = window.scrollY;
+        
+          if (scrollPosition >= stickyThreshold) {
+            stickyDiv.style.position = 'fixed';
+            stickyDiv.style.top = '0';
+          } else {
+            stickyDiv.style.position = 'static';
+          }
+        });
+        </script>
 </body>
 </html>

@@ -161,14 +161,20 @@ body{
      display: flex;
      flex-wrap: nowrap;
   }
- 
+  .repositt{
+    background-color: #0d1117;
+    width: 395px;
+    height: 1093px;
+   
+  }
   .repo{
-    margin-top: 40px;
+    position:relative;
+    background-color: #0d1117;
     width: 287px;
     height: 1093px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-top: 16px;
+    padding-top: 56px;
     border-bottom: 1px solid #2a2f36;
   }
   #row11{
