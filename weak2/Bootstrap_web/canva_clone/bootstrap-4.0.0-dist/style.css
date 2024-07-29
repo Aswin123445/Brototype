@@ -1,0 +1,274 @@
+@media only screen and (max-width: 535px) {
+    .camera-roll {
+        opacity: 0;
+    }
+    .see-all{
+        opacity: 0;
+    }
+    .madhu{
+        opacity: 0;
+    }
+    .menu-plus{
+        opacity: 0;
+    }
+    .last-sub-heading{
+        opacity: 0;
+    }
+}
+
+
+
+/* media query for medium level screens */
+@media screen and (min-width: 100px) and (max-width: 991px) {
+    /* Styles for screens between 600px and 1024px */
+    .first-row{
+        height: 50px;
+        padding-right: 10px;
+        background: linear-gradient(to bottom, #01c4cc, #6642e4);
+
+    }
+    .content-wrapper{
+        height: 36px;
+        width: 35px;
+        margin-left: -8px;
+        margin-top: 6px;
+        background-color: white;
+        margin-right: 10px;
+    }
+    .search-field{
+        background-color: white;
+        height: 40px;
+        margin-top: 5px;
+        border-radius: 10px;
+    }
+    .wrapper2{
+        margin-top: 5px;
+        height: 30px;
+        width: 20px;
+    }
+    .input-class{
+       width: 100%;
+    }
+    .input-class input{
+        height: 33px;
+        width: 100%;
+        border:none;
+    }
+    .second-row{
+        background: linear-gradient(to bottom, #4c4bf0,  #7831e6);
+        height: 60px;
+    }
+    .image-box{
+        height: 165px;
+    }
+   
+    .image-box:hover{
+        height: 180px;
+     }
+    .image-text{
+        font-weight: 600;
+        
+    }
+    .image-cont{
+        background-color: grey;
+        height: 86%;
+        width: 100%;
+        border-radius: 10px;
+        background-size: cover;
+    }
+    .heading-text-row{
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .foot-row1{
+        height: 54px;
+        border-top: .5px solid rgba(62, 61, 61, 0.312);
+        font-weight: 600;
+        color: blue;
+    }
+    .home{
+        font-size: 25px;
+    }
+    .menu-plus{
+        background-color: blue;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        width: 45px;
+        padding-left: 11px;
+    }
+        /* magic design */
+        .magic-design{
+            height: 45px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .new-design{
+            height: 15px;
+            width: 60px;
+            background-color: blue;
+            border-radius: 10px;
+        }
+       .new-design{
+        font-size: 10px;
+        color: white;
+       }
+       .big-screen{
+        height: 300px;
+        width: 100%;
+       }
+       .big-image{
+        height: 95%;
+        width: 95%;
+        background-size: cover;
+       }
+       .big-image:hover{
+        
+            filter: brightness(1.14);
+        
+       }
+          /* resume-sub */
+   .resume-sub{
+    height: 55pxpx;
+   }
+   .main-heading{
+     font-size: 1.3rem;
+     font-weight: 700;
+     color: #4c4bf0;
+     word-spacing: 2;
+   }
+   .sub-heading{
+    color: rgb(77, 77, 109);
+    background-size: .8rem;
+    font-weight: 600;
+   }
+}
+@media screen and (min-width: 992px) {
+    .first-row{
+        height: 50px;
+        padding-right: 10px;
+        background: linear-gradient(to bottom, #01c4cc, #6642e4);
+
+    }
+    .content-wrapper{
+        height: 36px;
+        width: 35px;
+        margin-left: -8px;
+        margin-top: 6px;
+        background-color: white;
+        margin-right: 10px;
+    }
+    .search-field{
+        background-color: white;
+        height: 40px;
+        margin-top: 5px;
+        border-radius: 10px;
+    }
+    .wrapper2{
+        margin-top: 5px;
+        height: 30px;
+        width: 20px;
+    }
+    .input-class{
+       width: 100%;
+    }
+    .input-class input{
+        height: 33px;
+        width: 100%;
+        border:none;
+    }
+    .second-row{
+        background: linear-gradient(to bottom, #4c4bf0,  #7831e6);
+        height: 60px;
+    }
+    .image-box{
+        height: 165px;
+    }
+    .image-box:hover{
+        height: 180px;
+     }
+    .image-text{
+        font-weight: 600;
+        
+    }
+    .image-cont{
+        background-color: grey;
+        height: 86%;
+        width: 100%;
+        border-radius: 10px;
+        background-image: url(resources/car1.jpg);
+        background-size: cover;
+    }
+    .heading-text-row{
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+   
+
+    .foot-row1{
+        height: 54px;
+        border-top: .5px solid rgba(62, 61, 61, 0.312);
+        font-weight: 600;
+        color: blue;
+    }
+    .home{
+        font-size: 25px;
+    }
+    .menu-plus{
+        background-color: blue;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        width: 45px;
+        padding-left: 11px;
+    }
+
+
+    /* magic design */
+    .magic-design{
+        height: 45px;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    .new-design{
+        height: 15px;
+        width: 60px;
+        background-color: blue;
+        border-radius: 10px;
+    }
+   .new-design{
+    font-size: 10px;
+    color: white;
+   }
+   .big-screen{
+    height: 300px;
+    width: 100%;
+   }
+   .big-image{
+    height: 95%;
+    width: 95%;
+    background-size: cover;
+   }
+   .big-image:hover{
+    
+        filter: brightness(1.14);
+    
+   }
+
+   /* resume-sub */
+   .resume-sub{
+    height: 55pxpx;
+   }
+   .main-heading{
+     font-size: 1.3rem;
+     font-weight: 700;
+     color: #4c4bf0;
+     word-spacing: 2;
+   }
+   .sub-heading{
+    color: rgb(77, 77, 109);
+    background-size: .8rem;
+    font-weight: 600;
+   }
+}
+

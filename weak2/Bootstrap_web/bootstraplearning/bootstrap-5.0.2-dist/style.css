@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+.navbar-nav .nav-link{
+    font-weight: 500;
+}
+.navbar{
+    box-shadow: 5px 10px 10px rgba(143, 137, 137, 0.2); 
+}
+.theme-shadow{
+    box-shadow: 1px 30px 30px rgba(69, 57, 57, 0.2); 
+
+}
+.image-zoom{
+    position: relative;
+    overflow: hidden;
+}
+.image-zoom-wrapper img{
+    transition:all 0.5s ease; 
+    width: 400px;
+}
+.image-zoom:hover .image-zoom-wrapper img{
+    transform: scale(1.1);
+}
+.btn{
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: none;
+    padding: 10px 24px;
+}
+.btn-brand{
+    background-color: rgb(45, 45, 201);
+    color: white;
+}
+.btn-brand:hover{
+    background-color: rgb(68, 68, 224);
+    color: white;
+}
+
+#hero{
+    background: linear-gradient(#7e73dd8d , #1c5dbe8f),url("/resouces/hero-1.jpg");
+    background-position: center;
+    background-size: cover ;
+}
+.section-title{
+    margin-bottom: 40px; 
+    margin-top: 50px;
+}
+.section-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: blue;
+    margin: 16px auto 24px auto;
+}
+.section-title p{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+h1{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.iconbox{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#7e73dd8d , #1c5dbe8f);
+    color: blue;
+    font-size: 34px;
+    flex: none;
+}
+.iconbox1{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#7e73dd8d , #1c5dbe8f);
+    color: blue;
+    font-size: 34px;
+    flex: none;
+}
+/*on hover effect*/
+.service{
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+.service::after{
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-color: rgba(71, 128, 243, 0);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.5s ease;
+}
+.service:hover::after{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(71, 128, 243, 0.822);
+    z-index: -1;
+
+}
+.service:hover h5,
+.service p:hover{
+    color: white;
+}
+.service:hover .iconbox{
+    background-color: rgba(255, 255, 255, 0.292);
+    color: white;
+}
+#counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    background: linear-gradient(#7e73dd8d , #1c5dbe8f),url("/resouces/counter.jpg");
+    background-position: center;
+    background-size: cover ;  
+}
+.portfolio-item .iconbox1{
+  background-color: #1c5dbe8f;
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  text-decoration: none;
+}
+.portfolio-item:hover .iconbox1{
+    opacity: 1;
+    top: 50%;
+    
+}
+.review-head{
+    position: relative;
+}
+.review-head::after{
+    content: "";
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: -14px;
+    background-color: white;
+    transform:  rotate(45deg);
+}
+.review-small{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #1c5dbe8f;
+}
+
+.team-content{
+    background-color: #1c5dbe;
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    width: calc(100%-50px);
+    transform: translate(-50%);
+    padding: 24px;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+.team-member:hover .team-content{
+    opacity: 1;
+    bottom: 24px;
+    width:90%
+
+}
+
+#contact{
+    position: relative;
+    z-index: 2;
+}
+#contact::after{
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(#7e73dd8d , #1c5dbe8f),url("/resouces/counter.jpg");
+    background-position: center;
+    background-size: cover ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+ }
+ #contact .form-control{
+    border-radius: 0;
+ }
+ #contact .form-control:focus{
+    box-shadow: none;
+    border-color: #1c5dbe;
+ }
+ #contact button{
+    background-color: rgba(0, 0, 255, 0.707);
+    height: 50px;
+ }
