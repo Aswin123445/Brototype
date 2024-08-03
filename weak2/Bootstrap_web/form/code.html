@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="/" onsubmit="return validate()">
+            <label for="submit">Submit</label>
+            name:<input type="text" id="name">         
+            email:<input type="text" id="email">
+            password:<input type="text" id="password">
+            <input type="submit" value="submit">
+        </form>
+    </center>
+    <script>
+        function validate(){
+            var name=document.getElementById("name").value;
+            var email=document.getElementById("email").value;
+            var password=document.getElementById("password").value;
+            if(name==""){
+                alert("must contain name");
+                return false;
+            }
+            if(email==""||email.length<4){
+                alert("must contain email");
+                return false;
+            }
+            if(name==""||name.length<4){
+                alert("must contain password");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
