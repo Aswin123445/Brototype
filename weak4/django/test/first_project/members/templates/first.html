@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html>
-<body>
 
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
 
-</body>
-</html>
+{% extends "master.html" %}
+
+{% block title %}
+  My Tennis Club - List of all members
+{% endblock %}
+
+
+{% block content %}
+  <h1>Members</h1>
+  
+  <ul>
+    {% for x in mymembers %}
+      <li><a href="data/{{ x.id }}">{{ x.first_name }} {{ x.second_name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
