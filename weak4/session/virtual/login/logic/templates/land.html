@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <!-- <style>
+    .height{
+        height:300px;
+    }
+    .helo{
+        padding-top: 200px;
+        padding-left: 100px;
+        font-size: 60px;
+        font-weight: 650;
+        color: white;
+    }
+    .but{
+        padding-left: 400px;
+        width: 70%;
+        padding-top: 20px;
+    }
+  </style> -->
+  <style>
+    .text_area{
+       font-weight: 700;
+       font-size: 60;
+    }
+    .link{
+        text-decoration: none;
+        color: white;
+    }
+    link:hover{
+        color: rgb(145, 203, 145);
+    }
+  </style>
+</head>
+<body class="bg-dark">
+    <div class="container-flex  d-flex justify-content-center align-items-center min-vh-100 ">
+        <div class="row ">
+            <!-- <div class="col-12   text-light">
+                Let's get started
+            </div> -->
+            <div class="text_area text-light">
+                <a href="/loginn" class="link">Let's get started...</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

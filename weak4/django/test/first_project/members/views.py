@@ -17,3 +17,11 @@ def details(request, id):
     'mymember': mymember,
   }
   return HttpResponse(template.render(context, request))
+
+def tab(request):
+  mymember=Member.objects.all().values()
+  template=loader.get_template('tables.html')
+  context={
+    'mymember':mymember,
+  }
+  return HttpResponse(template.render(context,request))
