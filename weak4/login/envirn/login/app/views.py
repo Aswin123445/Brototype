@@ -1,36 +1,48 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
-from django.urls import reverse_lazy
 from django.contrib.auth import logout as log
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
+from django.shortcuts import redirect
 # Create your views here.
 def index(request):
     return render(request,'index.html')
 
-from django.shortcuts import redirect
-
 def logout(request):
-    log(request)
-    return redirect('login') 
+    if 'username' in request.session:
+      log(request)
+      return redirect(loginn) 
+    return redirect('login')
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def loginn(request):
+    if 'username' in request.session:
+       return redirect(home)
     if request.method=="POST":
         name=request.POST['name']
-        print(name)
         password=request.POST['password']
         user=authenticate(username=name,password=password)
         #login funtion sets the session variables necessary fo rmaintaininge 
         #requeried sesstions
         if user is not None:
+            request.session['username'] = name
             login(request,user)
             context={'userdetails':user}
-            return render(request,'home.html',context)
+            return redirect(home)
         else :
-            return redirect('signup')
-
+            return redirect(signup)
     return render(request,'login.html')
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def home(request):
+    if 'username' in request.session:
+        return render(request,'home.html')
+    else:
+        return redirect('login')
 def signup(request):
+    if 'username' in request.session:
+        return redirect(home)
     if request.method=="POST":
         username=request.POST['name']
         email=request.POST['email']
@@ -39,6 +51,5 @@ def signup(request):
         myuser.save()
         #above code is saved
         return redirect('login')
-
     return render(request,'signup.html')
-
+    
