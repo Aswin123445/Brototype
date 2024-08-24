@@ -1,48 +1,83 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            background-color: rgb(27, 27, 27);
-        }
-        .text{
-            color: white;
-            display: flex;
-            justify-content: center;
-            font-size: 60px;
-            font-weight: 700;
-            padding-top: 200px;
-        }
-       .btn{
-        background-color: rgb(27, 27, 27);
-        width: 150px;
-        height: 50px;
-        margin-right: 40px;
-        color: white;
-        font-size: 30px;
-        font-weight: 500;
-       }
-       .parent{
-        display: flex;
-        justify-content: center;
-        margin-top: 40px;
-        margin-left: 90px;
-       }
-    </style>
+    <!-- Bootstrap 5 CSS -->
+   
+ <link rel="stylesheet" href="{% static 'style.css' %}">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body >
-    <div class="text">let's get started...</div>
-    <div class="parent">
-        <div class="sign">
-            <a class="sign" href="signup"><button class="btn">signup</button></a>
+    <div class="container-flex bg-dark">
+        <div class="row  vh-100 align-items-center  ">
+            <div class="col-12 text-center  d-flex justify-content-center">
+                <div class="card card_style " style="border: 1px solid white; background-color: #253036;" >
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 picture"> 
+                                <div class="container-flex  add">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text_box">
+                                                <div class="row">
+                                                    <div class="col d-flex p_title">Logor</div>
+                                                    <div class="p_sub_title d-flex" style="margin-left: .8em;">Your Data Is Save Here</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="div d-flex template">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col d-flex text_first_row">Let's get started</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex  p_sub_title" style="margin-left: 1em; color: azure;">Audhenticate user</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text_template">
+                                                
+                                                <a href="login">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button  type=“button” class="btn sigin btn-primary" >Signin</button>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="signup">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button  type=“button” class="btn btn-primary  signup" >Signup</button>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-        <a href="login"><button class="btn">login</button></a>
     </div>
-
-
 </body>
 </html>

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login
 from django.contrib.auth import logout as log
 from django.views.decorators.cache import cache_control
 from django.shortcuts import redirect
+from django.contrib import messages
 # Create your views here.
 def index(request):
     if 'username' in request.session:
@@ -32,7 +33,8 @@ def loginn(request):
             context={'userdetails':user}
             return redirect(home)
         else :
-            return redirect(signup)
+            messages.error(request,"Incorrect Password or Username")
+            return redirect(loginn)
     return render(request,'login.html')
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -41,6 +43,8 @@ def home(request):
         return render(request,'home.html')
     else:
         return redirect('login')
+    
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def signup(request):
     if 'username' in request.session:
         return redirect(home)
@@ -53,4 +57,3 @@ def signup(request):
         #above code is saved
         return redirect('login')
     return render(request,'signup.html')
-    
