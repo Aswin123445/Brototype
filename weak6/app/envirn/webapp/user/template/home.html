@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    signup
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Muhamad Nauval Azhar">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="This is a login page template based on Bootstrap 5">
+        <title>Bootstrap 5 Login Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        
+    </head>
+    
+    <body class="bg-dark">
+        {% if messages %}
+          {% for message in messages %}  
+            {% if message.tags == 'error' %}  
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+         {% endfor %}
+        {% endif %} 
+        <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="row">
+                <div class="card" style="width: 50em;height: 30em; padding: 0; border-radius: 1rem;">
+                    <div class="card-body p-0" style="background-color: #2f2a2a;">
+                          <div class="container d-flex justify-content-center">
+                            <div class="row">
+                                <div class="cow-12" style="color: white; font-weight: 700; font-size: 2rem;margin-top: 1rem;">
+                                   Home Page
+                                </div>
+                            </div>
+                          </div>
+                          <div class="div" style="margin-top: 3rem;"></div>
+                          <div class="container d-flex justify-content-center">
+                            <div class="row">
+                                <div class="cow-12" style="color: white; font-weight: 700; font-size: 2rem;margin-top: 1rem;">
+                                   Welcome Back  {{user.username|capfirst}}
+                                </div>
+                            </div>
+                          </div>
+                          <div class="container d-flex justify-content-center">
+                            <div class="row">
+                                <div class="cow-12" style="color: white; font-weight: 500; font-size: 1.5rem;margin-top: 1rem;">
+                                   Explore the world of technology from us
+                                </div>
+                            </div>
+                          </div>
+                          <div class="container d-flex justify-content-center">
+                            <div class="row">
+                                <div class="cow-12" style="color: white; font-weight: 700; font-size: 2rem;margin-top: 1rem;">
+                                    <a href="{% url 'logout' %}">
+                                        <button type="button" class="btn btn-warning" style="width: 8rem; font-weight: 700;">LOGOUT</button>
+                                    </a>
+                                </div>
+                            </div>
+                          </div>
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    signup
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Muhamad Nauval Azhar">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="This is a login page template based on Bootstrap 5">
+        <title>Bootstrap 5 Login Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+           .ca{
+            border: 2px solid white;
+           }
+           .signu{
+            padding-left: 100px;
+           }
+           
+        </style>
+    </head>
+    
+    <body class="bg-dark">
+        <section class="h-100">
+            <div class="container h-100">
+                <div class="row justify-content-sm-center h-100">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                        
+                        <div class="card shadow-lg bg-dark ca">
+                            <div class="card-body p-5">
+                                <h1 class="fs-4 card-title text-light signu fw-bold mb-4">Signup</h1>
+                                <form method="POST" id="signup" class="needs-validation" novalidate="" autocomplete="off">
+                                    {% csrf_token %}
+                                    {% if messages %}
+                                       {% for message in messages %}  
+                                          {% if message.tags == 'error' %}  
+                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                 {{message}}
+                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                             </div>
+                                          {% endif %}
+                                        {% endfor %}
+                                    {% endif %} 
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-light" for="name">Name</label>
+                                        <input id="name" type="text" class="form-control fiel" name="name" value="" required autofocus>
+                                        <div class="invalid-feedback">
+                                            Name is required	
+                                        </div>
+                                    </div>
+    
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-light"   for="email">E-Mail Address</label>
+                                        <input id="mail" type="email" class="form-control" name="email" value="" required>
+                                        <div class="invalid-feedback">
+                                            Email is invalid
+                                        </div>
+                                    </div>
+    
+                                    <div class="mb-3">
+                                        <label class="mb-2 text-light"  for="password">Password</label>
+                                        <input id="password" type="password" class="form-control" name="password" required>
+                                        <div class="invalid-feedback">
+                                            Password is required
+                                        </div>
+                                    </div>
+    
+                                    <p class="form-text text-muted mb-3">
+                                        By registering you agree with our terms and condition.
+                                    </p>
+    
+                                    <div class="align-items-center d-flex">
+                                        <button type="submit" class="btn btn-primary ms-auto">
+                                            Signup	
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer py-3 border-0">
+                                <div class="text-center">
+                                    Already have an account? <a href="index.html" class="text-dark">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-5 text-muted">
+                            Copyright &copy; Aswin &mdash; multimedia
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- {% comment %} <script src="js/login.js"></script> {% endcomment %} -->
+        <script>
+            const form = document.getElementById('signup');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission
+        
+            const regex = /^[\w-.]+@[\w-]+(\.[\w-]+)+$/;
+            const email = document.getElementById('mail').value;
+            const password = document.getElementById('password').value;
+            const name=document.getElementById('name').value
+        
+            // Basic validation
+            if (email === '' || password === '') {
+                alert('Please fill in all required fields.');
+                return; // Prevent form submission
+            }
+            if (!regex.test(email)) {
+                alert('Invalid email address');
+                return; // Prevent form submission
+            }
+            form.submit();
+        });
+          </script>
+    </body>
+    </html>
