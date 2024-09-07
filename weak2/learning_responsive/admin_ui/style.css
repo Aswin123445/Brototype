@@ -1,0 +1,26 @@
+.cont{
+    border-bottom: 2px solid white;
+}
+.image_admin{
+    font-size: 2rem;
+}
+.helo_user{
+    color: white;
+}
+.wishing_card{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.logout{
+    color: white;
+}
+.user_list{
+    color: white;
+}
+.user_details{
+    color: white;
+}
+.data{
+    font-size: 1.4rem;
+    font-weight: 600;
+}

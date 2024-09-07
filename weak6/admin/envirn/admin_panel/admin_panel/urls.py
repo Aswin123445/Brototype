@@ -1,5 +1,5 @@
 """
-URL configuration for webapp project.
+URL configuration for admin_panel project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,10 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+from members.admin import custom_admin_site
 
 urlpatterns = [
-    path("",include('user.urls')),
     path('admin/', admin.site.urls),
-    path('admin_panel/', include('user.admin_urls')),
+    path('customadmin/', custom_admin_site.urls),
 ]

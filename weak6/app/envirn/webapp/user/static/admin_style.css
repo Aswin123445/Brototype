@@ -1,0 +1,43 @@
+
+
+.card_style{
+    width: 40rem;
+    height: 33rem;
+    background-color:  #362725;
+    border: 2px solid #88919b;
+    color: #eeeeee
+}
+.p_title{
+    margin-top: .2em;
+    margin-left: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.main_user{
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-left: 14px;
+}
+.hai{
+    padding-top: 2rem;
+    margin-left: 3rem;
+    color:  white;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.change{
+    color: rgb(118, 247, 118);
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding-left: 20px;
+    margin-bottom: 14px;
+}
+.bo{
+    border-top: 1px solid rgb(63, 62, 62);
+}
+
+.usrname{
+    width: 60px;
+}

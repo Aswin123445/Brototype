@@ -1,5 +1,5 @@
 from pyexpat.errors import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from psycopg2 import IntegrityError
 from django.contrib import messages
@@ -35,12 +35,14 @@ def login(request):
        username= request.POST['name']
        password=request.POST['password']
        user=authenticate(username=username,password=password)
-       if user is not None:
-           
+       if user is not None and not user.is_staff:           
            request.session['username']=username
            user_login(request,user)
            messages.success(request,'user logged in sucessfully')
            return redirect(home)
+       elif user.is_staff:
+           messages.error(request,'only users allowed here')
+           return redirect(login)
        else:
            messages.error(request,'invalid username or password')
            return redirect(login)
@@ -58,12 +60,105 @@ def signup(request):
                  raise IntegrityError()
              myuser=User.objects.create_user(username,email,password)
              myuser.save()
-             print('user created susessfully')
              messages.success(request, "User created successfully.")
-             print(messages)
              return redirect(login)
         except IntegrityError:
              messages.error(request, "Username already exists.")
              return redirect(signup)
 
     return render(request,'signup.html')
+
+
+
+#admin view model
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def admin_login(request):
+    if 'admin' in request.session:
+        return redirect(admin_home)
+    if request.method=='POST':
+       username= request.POST['name']
+       password=request.POST['password']
+       user=authenticate(username=username,password=password)
+       if user is not None:
+           if user.is_staff:
+              request.session['admin']=username
+              user_login(request,user)
+              messages.success(request,'admin logged in sucessfully')
+              return redirect(admin_home)
+           else:
+             messages.error(request,'user not allowed here!')
+       else:
+           messages.error(request,'invalid username or password')
+           return redirect(admin_login)
+    return render(request,'login.html')
+#fetching the data from the user
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def admin_home(request):
+    if 'admin' in request.session:
+      all_users = User.objects.all()
+      context = {'all_users': all_users}
+      return render(request, 'admin_home.html', context)
+    return redirect(admin_login)
+
+#deleting user from the admin page
+def admin_user_delete(request, user_id):
+        try:
+          user = User.objects.get(id=user_id)
+          user.delete() if  not user.is_staff else None
+          return redirect(admin_home)  # Redirect to a success page
+        except User.DoesNotExist:
+          messages.error(request, "User does not exist.")
+          return redirect('admin_home')
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def admin_user_details(request,user_id):
+    user = get_object_or_404(User, id=user_id)
+    context={'user':user}
+    return render(request,'admin_user_details.html',context)
+
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def update_user(request,user_id):
+    user = User.objects.get(id=user_id)
+    user.username=request.POST['username']
+    user.save()
+    return redirect(admin_home)
+
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def update_email(request,user_id):
+    user = User.objects.get(id=user_id)
+    user.email=request.POST['email']
+    user.save()
+    return redirect(admin_home)
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def create_user_from_admin(request):
+    if request.method=="POST":
+        username=request.POST['username']
+        email=request.POST['email']
+        password=request.POST['password']
+        try:
+             if User.objects.filter(username=username).exists():
+                 raise IntegrityError()
+             myuser=User.objects.create_user(username,email,password)
+             myuser.save()
+             messages.success(request, "User created successfully.")
+             return redirect(admin_home)
+        except IntegrityError:
+             messages.error(request, "Username already exists.")
+             return redirect(admin_home)
+
+    return render(request,'signup.html')
+
+#logout user
+
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def admin_logout(request):
+    if 'admin' in request.session:
+        user_logout(request)
+        messages.success(request,'admin logout successfull')
+        return redirect(admin_login)
+    return redirect(admin_home)
+
+

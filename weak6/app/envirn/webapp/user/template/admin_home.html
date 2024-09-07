@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Muhamad Nauval Azhar">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="This is a login page template based on Bootstrap 5">
+        <title>Bootstrap 5 Login Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     
+
+<!-- style sheet -->
+    <style>
+        .cont{
+    border-bottom: 2px solid white;
+}
+.image_admin{
+    font-size: 2rem;
+}
+.helo_user{
+    color: white;
+}
+.wishing_card{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.logout{
+    color: white;
+}
+.user_list{
+    color: white;
+}
+.user_details{
+    color: white;
+}
+.data{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.user_data{
+    border: 1px solid rgba(146, 145, 145, 0.379);
+    height: 3rem;
+}
+.user_name{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(162, 162, 162);
+}
+.sea_fied{
+    border: 2px solid white;
+    border-radius: 1rem;
+    background-color: #212529;
+    color: green;
+    font-weight: 600;
+    font-weight:600 ;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+    </style>
+
+    </head>
+    <body class="bg-dark">
+        <div class="container-fluid cont">
+            <div class="row">
+                <div class="col-1 pl-5 image_admin">
+                    <div class="admin_image">
+                        <i class="fa-solid fa-user-tie" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+                <div class="col helo_user">
+                    <div class="wishing_card">
+                        Helo User
+                    </div>
+                </div>
+                <div class="col ml-auto d-flex justify-content-end logout">
+                    <a href="{% url 'adminlogout' %}"><button type="button" class="btn btn-danger" >Logout</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control  sea_fied" placeholder="Search users and admins here" onkeyup="searchUsers()">
+               
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <!-- user list -->
+                <div class="col-6 d-flex justify-content-center user_list">
+                    <div class="container">
+                        <div class="row">
+                            <div class="data">
+                                User Data
+                            </div>
+                            <div id="userList">
+                                {% for user in all_users %}
+                                <div class="row mt-3 ml-2 mr-2 pt-2 user_data">
+                                    <div class="col-6 user_name">{{ user }}</div>
+                                    <div class="col-6 d-flex justify-content-end pt-2">
+                                        <a href="{% url 'admin_user_details' user.id %}">
+                                            <i class="fa-regular fa-pen-to-square" style="color: #ffffff;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- user details -->
+                <div class="col-6  d-flex justify-content-center user_details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="list">
+                                    <div class="data">
+                                        Create New User
+                                        <form method="POST" id="admin_user_creation" action="{% url 'create_user_from_admin' %}" style="margin-top: 1rem;">
+                                            {% csrf_token %}
+                                            name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input id="name" type="text" name="username" placeholder="Name"><br>
+                                            <br>
+                                            email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input id="email" type="text" placeholder="Email" name="email"><br>
+                                            <br>
+                                            password : <input type="text" name="password" id="password" placeholder="Password">
+
+                                            <button type="submit">create user</button>
+                                        </form>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const form = document.getElementById('admin_user_creation');
+        
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form submission
+        
+            const regex = /^[\w-.]+@[\w-]+(\.[\w-]+)+$/;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const name=document.getElementById('name').value
+        
+            // Basic validation
+            if (email === '' || password === '') {
+                alert('Please fill in all required fields.');
+                return; // Prevent form submission
+            }
+            if (!regex.test(email)) {
+                alert('Invalid email address');
+                return; // Prevent form submission
+            }
+            form.submit();
+        });
+        function searchUsers() {
+        // Get the search input value
+        var input = document.getElementById('searchInput');
+        var filter = input.value.toLowerCase();
+        var userList = document.getElementById('userList');
+        var userData = userList.getElementsByClassName('user_data');
+
+        // Loop through all user data and hide those that don't match the search query
+        for (var i = 0; i < userData.length; i++) {
+            var userName = userData[i].getElementsByClassName('user_name')[0];
+            var txtValue = userName.textContent || userName.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                userData[i].style.display = "";
+            } else {
+                userData[i].style.display = "none";
+            }
+        }
+    }
+                  </script>
+        </div>
+        <section class="h-100">
+            <div class="container h-100">
+                <div class="row justify-content-sm-center h-100">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
