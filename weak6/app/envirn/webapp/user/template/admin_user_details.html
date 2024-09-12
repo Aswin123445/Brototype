@@ -57,7 +57,7 @@
                                     Update  User
                                  </div>
                                  <div class="row ">
-                                    <form method="POST" id="admin_update_username"  action="{% url 'update_user' user.id %}" >
+                                    <form method="POST" id="admin_update_username"  action="{% url 'update_user' id %}" >
                                         {% csrf_token %}
                                         <div class="form-group" style="margin-bottom: 1rem;">
                                             <label for="username">Username :</label>
@@ -69,7 +69,7 @@
                                     <form method="POST"  action="{% url 'update_email'  user.id%} ">
                                         {% csrf_token %}
                                         <div class="form-group" style="margin-bottom: 1rem;">
-                                            <label for="username">Username :</label>
+                                            <label for="username">Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
                                             <input type="text" id="username" placeholder="Email" name="email">
                                         </div>
                                         <button type="submit"  class="btn btn_hai" style="background-color: grey; margin-top: -5px;">Submit</button>

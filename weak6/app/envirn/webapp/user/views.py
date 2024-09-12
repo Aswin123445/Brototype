@@ -35,15 +35,16 @@ def login(request):
        username= request.POST['name']
        password=request.POST['password']
        user=authenticate(username=username,password=password)
-       if user is not None and not user.is_staff:           
-           request.session['username']=username
-           user_login(request,user)
-           messages.success(request,'user logged in sucessfully')
-           return redirect(home)
-       elif user.is_staff:
-           messages.error(request,'only users allowed here')
-           return redirect(login)
-       else:
+       if user is not None :    
+           if not user.is_staff:       
+             request.session['username']=username
+             user_login(request,user)
+             messages.success(request,'user logged in sucessfully')
+             return redirect(home)
+           else :
+             messages.error(request,'only users allowed here')
+             return redirect(login)
+       else :
            messages.error(request,'invalid username or password')
            return redirect(login)
     return render(request,'login.html')
@@ -101,6 +102,7 @@ def admin_home(request):
     return redirect(admin_login)
 
 #deleting user from the admin page
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def admin_user_delete(request, user_id):
         try:
           user = User.objects.get(id=user_id)
@@ -111,10 +113,16 @@ def admin_user_delete(request, user_id):
           return redirect('admin_home')
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
+
 def admin_user_details(request,user_id):
-    user = get_object_or_404(User, id=user_id)
-    context={'user':user}
-    return render(request,'admin_user_details.html',context)
+    if 'admin' in request.session:
+      user = get_object_or_404(User, id=user_id)
+      context={'user':user,'id':user_id}
+      print(request.session['admin'])
+      return render(request,'admin_user_details.html',context)
+    else:
+       print('ahi')
+       return redirect(admin_login)
 
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -122,6 +130,7 @@ def update_user(request,user_id):
     user = User.objects.get(id=user_id)
     user.username=request.POST['username']
     user.save()
+    messages.success(request,'User Name created sucessfully ')
     return redirect(admin_home)
 
 
@@ -130,6 +139,7 @@ def update_email(request,user_id):
     user = User.objects.get(id=user_id)
     user.email=request.POST['email']
     user.save()
+    messages.success(request,'Email Updated sucessfully')
     return redirect(admin_home)
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
@@ -138,13 +148,22 @@ def create_user_from_admin(request):
         username=request.POST['username']
         email=request.POST['email']
         password=request.POST['password']
+        data=request.POST['is_dmin']
         try:
              if User.objects.filter(username=username).exists():
                  raise IntegrityError()
-             myuser=User.objects.create_user(username,email,password)
-             myuser.save()
-             messages.success(request, "User created successfully.")
-             return redirect(admin_home)
+             if data == 'option2':
+               myuser=User.objects.create_user(username,email,password)
+               myuser.save()
+               messages.success(request, "User created successfully.")
+               return redirect(admin_home)
+             else:
+               myuser=User.objects.create_user(username,email,password)
+               myuser.is_staff=True
+               myuser.is_superuser=True
+               myuser.save()
+               messages.success(request, "Admin created successfully.")
+               return redirect(admin_home)
         except IntegrityError:
              messages.error(request, "Username already exists.")
              return redirect(admin_home)
@@ -159,6 +178,6 @@ def admin_logout(request):
         user_logout(request)
         messages.success(request,'admin logout successfull')
         return redirect(admin_login)
-    return redirect(admin_home)
+    return redirect(admin_login)
 
 

@@ -102,6 +102,22 @@
                 <div class="col-6 d-flex justify-content-center user_list">
                     <div class="container">
                         <div class="row">
+                            {% if messages %}
+                            {% for message in messages %}  
+                               {% if message.tags == 'success' %}  
+                                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                      {{message}}
+                                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  </div>
+                                  {%else%}
+                                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                     {{message}}
+                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                 </div>
+                               {% endif %}
+                             {% endfor %}
+                         {% endif %} 
+                         
                             <div class="data">
                                 User Data
                             </div>
@@ -128,15 +144,17 @@
                             <div class="col">
                                 <div class="list">
                                     <div class="data">
-                                        Create New User
+                                        Create New User or Admin
                                         <form method="POST" id="admin_user_creation" action="{% url 'create_user_from_admin' %}" style="margin-top: 1rem;">
                                             {% csrf_token %}
                                             name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input id="name" type="text" name="username" placeholder="Name"><br>
                                             <br>
                                             email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input id="email" type="text" placeholder="Email" name="email"><br>
                                             <br>
-                                            password : <input type="text" name="password" id="password" placeholder="Password">
-
+                                            password : <input type="text" name="password" id="password" placeholder="Password"><br>
+                                            <br>
+                                            admin: <input type="radio" id="option1" name="is_dmin" value="option1">
+                                            user: <input type="radio" id="option2" name="is_dmin" value="option2">
                                             <button type="submit">create user</button>
                                         </form>
                                     </div>
