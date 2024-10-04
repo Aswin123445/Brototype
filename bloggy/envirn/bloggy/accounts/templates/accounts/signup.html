@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>SignUp page</title>
+    <link rel="stylesheet" href="{%static 'accounts/css/signup_style.css'%}">
+</head>
+<body>
+    <div class="cover" >
+        <div class="signup-name">
+            SIGN UP
+        </div>
+        <div class="signup-name extra">TO BLOGGY</div>
+    </div>
+    <div class="signup-container">
+        <!-- creating a form -->
+         <form method="POST" class="sign-up-form">
+            {% csrf_token %}
+            <label  for="username" class="name-label">Name</label><br>
+            <input type="text" placeholder="Name" id="username" name="first_name" class="form-input-text" ><br>
+
+            <label  for="username" class="name-label">Email</label><br>
+            <input type="text" placeholder="Email" id="email" name="username" class="form-input-text" ><br>
+
+            <label  for="username" class="name-label">number</label><br>
+            <input type="text" placeholder="Phone Number" id="phone_number" name="phone_number" class="form-input-text" ><br>
+
+            <label  for="username" class="name-label">Password</label><br>
+            <input type="text" placeholder="Password" id="password1" name="password1" class="form-input-text" ><br>
+
+            <label  for="username" class="name-label">conform password</label><br>
+            <input type="text" placeholder="Conform Password" id="password2" name="password2" class="form-input-text" ><br>
+
+            <div class="button-container">
+                <button type="submit" class="sign-up-buttons">SIGN UP</button>
+            </div>
+         </form>
+    </div>
+</body>
+</html>

@@ -101,21 +101,30 @@ def admin_home(request):
       return render(request, 'admin_home.html', context)
     return redirect(admin_login)
 
+
+#custom 404 error
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
 #deleting user from the admin page
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def admin_user_delete(request, user_id):
-        try:
-          user = User.objects.get(id=user_id)
-          user.delete() if  not user.is_staff else None
-          return redirect(admin_home)  # Redirect to a success page
-        except User.DoesNotExist:
-          messages.error(request, "User does not exist.")
-          return redirect('admin_home')
+    try:
+        user = get_object_or_404(User, id=user_id)
+        if not user.is_staff:
+            user.delete()
+            messages.success(request, "User deleted successfully.")
+        else:
+            messages.error(request, "Cannot delete staff user.")
+        return redirect('admin_home')  # Redirect to a success page
+    except User.DoesNotExist:
+        messages.error(request, "User does not exist.")
+        return redirect('admin_home')
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 
 def admin_user_details(request,user_id):
-    if 'admin' in request.session:
+    if 'admin' in request.session :
       user = get_object_or_404(User, id=user_id)
       context={'user':user,'id':user_id}
       print(request.session['admin'])
@@ -148,7 +157,7 @@ def create_user_from_admin(request):
         username=request.POST['username']
         email=request.POST['email']
         password=request.POST['password']
-        data=request.POST['is_dmin']
+        data=request.POST['is_dmin'] or 'option2'
         try:
              if User.objects.filter(username=username).exists():
                  raise IntegrityError()
