@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fashion Landing Page</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Roboto:300,400,500" rel="stylesheet">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/test/hs.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader"><div class="spinner"></div></div>
+  
+  <!-- Header / Navigation -->
+  <header id="main-header">
+    <div class="container header-container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Fashion Logo">
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle">Dark Mode</button>
+        <div id="hamburger" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg" style="background-image: url('assets/hero-bg.jpg');"></div>
+    <div class="hero-overlay">
+      <h1 class="hero-title">Fashion Reimagined</h1>
+      <p class="hero-subtitle">Elevate your style with our exclusive collection of modern and timeless pieces.</p>
+      <a href="#collection" class="btn hero-btn">Shop Now</a>
+    </div>
+  </section>
+  
+  <!-- Collection Section -->
+  <section id="collection" class="collection-section">
+    <div class="container">
+      <h2 class="section-title">Our Collection</h2>
+      <p class="section-description">Discover our curated selection of fashion pieces that blend elegance with modern trends.</p>
+      <div class="product-grid">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product1.jpg" alt="Luxury Red Dress">
+          <div class="product-info">
+            <h3 class="product-title">Luxury Red Dress</h3>
+            <p class="product-price">$450</p>
+            <button class="btn buy-btn" data-product="1">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product2.jpg" alt="Elegant Suit">
+          <div class="product-info">
+            <h3 class="product-title">Elegant Suit</h3>
+            <p class="product-price">$650</p>
+            <button class="btn buy-btn" data-product="2">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product3.jpg" alt="Classic Handbag">
+          <div class="product-info">
+            <h3 class="product-title">Classic Handbag</h3>
+            <p class="product-price">$350</p>
+            <button class="btn buy-btn" data-product="3">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product4.jpg" alt="Stylish Shoes">
+          <div class="product-info">
+            <h3 class="product-title">Stylish Shoes</h3>
+            <p class="product-price">$200</p>
+            <button class="btn buy-btn" data-product="4">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product5.jpg" alt="Chic Blazer">
+          <div class="product-info">
+            <h3 class="product-title">Chic Blazer</h3>
+            <p class="product-price">$300</p>
+            <button class="btn buy-btn" data-product="5">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product6.jpg" alt="Modern Skirt">
+          <div class="product-info">
+            <h3 class="product-title">Modern Skirt</h3>
+            <p class="product-price">$280</p>
+            <button class="btn buy-btn" data-product="6">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 7 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product7.jpg" alt="Casual T-Shirt">
+          <div class="product-info">
+            <h3 class="product-title">Casual T-Shirt</h3>
+            <p class="product-price">$120</p>
+            <button class="btn buy-btn" data-product="7">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 8 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product8.jpg" alt="Designer Jeans">
+          <div class="product-info">
+            <h3 class="product-title">Designer Jeans</h3>
+            <p class="product-price">$320</p>
+            <button class="btn buy-btn" data-product="8">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 9 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product9.jpg" alt="Elegant Hat">
+          <div class="product-info">
+            <h3 class="product-title">Elegant Hat</h3>
+            <p class="product-price">$150</p>
+            <button class="btn buy-btn" data-product="9">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product Card 10 -->
+        <div class="product-card">
+          <img class="product-image lazy" data-src="assets/product10.jpg" alt="Statement Accessories">
+          <div class="product-info">
+            <h3 class="product-title">Statement Accessories</h3>
+            <p class="product-price">$230</p>
+            <button class="btn buy-btn" data-product="10">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <p class="testimonial-text">"The quality and style are unmatched. I feel like a star every time I wear these designs!"</p>
+          <h4 class="testimonial-author">- Jane Doe</h4>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"A perfect blend of modern trends and timeless elegance. Their collection is simply stunning."</p>
+          <h4 class="testimonial-author">- John Smith</h4>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"Exceptional customer service and products of the highest quality. Highly recommended!"</p>
+          <h4 class="testimonial-author">- Emily Clark</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Blog Section -->
+  <section id="blog" class="blog-section">
+    <div class="container">
+      <h2 class="section-title">Latest From Our Blog</h2>
+      <div class="blog-posts">
+        <article class="blog-post">
+          <img class="blog-image lazy" data-src="assets/blog1.jpg" alt="Fashion Trends 2025">
+          <div class="blog-content">
+            <h3 class="blog-title">Fashion Trends 2025</h3>
+            <p class="blog-excerpt">Explore the upcoming trends that will shape the fashion industry in 2025.</p>
+            <a href="#" class="btn blog-btn">Read More</a>
+          </div>
+        </article>
+        <article class="blog-post">
+          <img class="blog-image lazy" data-src="assets/blog2.jpg" alt="Style Tips">
+          <div class="blog-content">
+            <h3 class="blog-title">Style Tips for Every Season</h3>
+            <p class="blog-excerpt">Discover expert tips to stay stylish no matter the season.</p>
+            <a href="#" class="btn blog-btn">Read More</a>
+          </div>
+        </article>
+        <article class="blog-post">
+          <img class="blog-image lazy" data-src="assets/blog3.jpg" alt="Behind the Scenes">
+          <div class="blog-content">
+            <h3 class="blog-title">Behind the Scenes</h3>
+            <p class="blog-excerpt">Take a look behind the scenes of our latest collection photoshoot.</p>
+            <a href="#" class="btn blog-btn">Read More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Our brand is dedicated to blending classic elegance with modern innovation. We craft timeless pieces designed to empower and inspire.</p>
+          <p>Every detail is meticulously designed to offer you a unique, sophisticated experience.</p>
+        </div>
+        <div class="about-image">
+          <img class="lazy" data-src="assets/about.jpg" alt="About Us">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Questions or inquiries? Reach out to us anytime.</p>
+          <ul class="contact-details">
+            <li><strong>Phone:</strong> +1 234 567 890</li>
+            <li><strong>Email:</strong> info@fashion.com</li>
+            <li><strong>Address:</strong> 123 Fashion Ave, New York, NY</li>
+          </ul>
+        </div>
+        <div class="contact-form-container">
+          <form class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-top">
+        <img src="assets/logo-footer.png" alt="Fashion Logo" class="footer-logo">
+        <div class="footer-social">
+          <a href="#"><img src="assets/facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="assets/instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="assets/twitter.png" alt="Twitter"></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Fashion. All Rights Reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Modal for Product Details -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <div class="modal-body">
+        <img id="modal-image" src="" alt="Product Image">
+        <h3 id="modal-title">Product Title</h3>
+        <p id="modal-description">Detailed product description goes here.</p>
+        <p id="modal-price">$0</p>
+        <button class="btn modal-buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- External JavaScript -->
+  <script src="j.js"></script>
+</body>
+</html>

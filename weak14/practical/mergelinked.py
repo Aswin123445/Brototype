@@ -94,3 +94,10 @@ l.print_node()
 print(remove_char('malayalam','m'))
 print(reverse_string('aswin'))
 second_largest_element([-10,1,30,20,100,40])
+
+
+def factorial(num):
+    if num == 1 :
+        return 1
+    return factorial(num-1)*num
+print(factorial(5))

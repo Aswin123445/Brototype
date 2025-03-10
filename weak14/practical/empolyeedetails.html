@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tailwind Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- 🌟 Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold">MyWebsite</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#" class="hover:text-blue-500">Home</a></li>
+                <li><a href="#" class="hover:text-blue-500">About</a></li>
+                <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+            </ul>
+            <button class="md:hidden text-xl">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section -->
+    <section class="bg-blue-500 text-white text-center py-20">
+        <h2 class="text-4xl font-bold">Welcome to My Website</h2>
+        <p class="mt-4">A simple and responsive Tailwind CSS layout.</p>
+        <button class="mt-6 bg-white text-blue-500 px-6 py-2 rounded-lg hover:bg-gray-200">Get Started</button>
+    </section>
+
+    <!-- 🌟 Content Section -->
+    <section class="container mx-auto px-4 py-12">
+        <h3 class="text-3xl font-bold text-center">Features</h3>
+        <div class="grid md:grid-cols-3 gap-6 mt-6">
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-xl font-semibold">Feature 1</h4>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-xl font-semibold">Feature 2</h4>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h4 class="text-xl font-semibold">Feature 3</h4>
+                <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4">
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
