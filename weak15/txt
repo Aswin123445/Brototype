@@ -1,0 +1,57 @@
+doc1 = ({srn:110, sname:"Rahul", degree:"BCA", sem:6, CGPA:7.9})
+doc2 = ({srn:111, sname:"Anjali", degree:"BCA", sem:6, CGPA:8.2})
+doc3 = ({srn:112, sname:"Vikram", degree:"BBA", sem:5, CGPA:7.5})
+doc4 = ({srn:113, sname:"Priya", degree:"BCA", sem:5, CGPA:7.0})
+doc5 = ({srn:114, sname:"Kiran", degree:"B.Com", sem:4, CGPA:6.8})
+doc6 = ({srn:115, sname:"Sneha", degree:"BCA", sem:6, CGPA:6.5})
+doc7 = ({srn:116, sname:"Arjun", degree:"BBA", sem:6, CGPA:8.0})
+doc8 = ({srn:117, sname:"Divya", degree:"BCA", sem:5, CGPA:6.9})
+doc9 = ({srn:118, sname:"Manoj", degree:"BCA", sem:6, CGPA:7.4})
+doc10 = ({srn:119, sname:"Tina", degree:"B.Com", sem:5, CGPA:7.2})
+
+db.stud09.insertMany([doc2, doc3, doc4, doc5, doc6, doc7, doc8, doc9, doc10])
+
+db.stud09.find()
+db.stud09.find({degree:"BCA"})
+db.stud09.find().sort({sname:1})
+db.stud09.find().skip(4).limit(3)
+db.stud09.find().skip(4).limit(3)
+db.stud09.find({sname:"Rahul"},{degree:1, _id:0})
+db.stud09.find().skip(4).limit(3).sort({CGPA:-1})
+db.stud09.find({degree:"BCA"}).count()
+db.stud09.find({}, {degree:1, _id:0})
+db.stud09.distinct("degree")
+db.stud09.find({degree:"BCA", CGPA:{$gt:6, $lt:7.5}})
+db.stud09.find({degree:"BCA", sem:6})
+
+
+doc1 = {
+    eid: 001, ename: "Rahul", dept: "production", desig: "developer", salary: 30000, yoj: 2015,
+    address: { dno: 397, street: 2, locality: "rmnagar", city: "bangalore" }
+  }
+  
+  db.emp09.insert(doc1)
+
+  db.emp09.find({ salary: { $gt: 50000, $lt: 75000 } })
+  db.emp09.find({ desig: "developer" })
+  db.emp09.find({ ename: "Rahul" }, { salary: 1, _id: 0 })
+  db.emp09.find({ ename: "Rahul" }, { "address.city": 1, _id: 0 })
+  db.emp09.updateMany(
+    { desig: "developer" },
+    { $inc: { salary: 5000 } }
+  )
+  db.emp09.updateOne(
+    { ename: "Rahul" },
+    { $set: { age: 30 } }
+  )
+  db.emp09.updateOne(
+    { ename: "Rahul" },
+    { $unset: { yoj: "" } }
+  )
+  db.emp09.updateOne(
+    { ename: "Rahul" },
+    { $set: { project: [] } }
+  )
+        
+
+
