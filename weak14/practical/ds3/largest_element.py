@@ -123,7 +123,7 @@ class BST :
         else :
             return closest
     
-        
+    
 b = BST()
 b.insert(50)
 b.insert(40)

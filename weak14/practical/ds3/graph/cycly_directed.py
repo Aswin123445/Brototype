@@ -1,7 +1,7 @@
 class Graph:
     def __init__(self):
         self.graph = {}
-        
+  
     def insert_edge(self,u,v,directed = False):
         if u not in self.graph :
             self.graph[u] = []
@@ -35,3 +35,5 @@ class Graph:
                 if self.is_cyclic_util(node,visited,rec_stack):
                     return True 
         return False 
+    
+    

@@ -18,6 +18,19 @@
 
 # print(is_valid_bst(root))
 
+def short_path(graph,start,target):
+    visited = set()
+    queue = [(start,[start])]
+    while queue:
+        node,path = queue.pop(0)
+        if node == target :
+            return path 
+        if node not in visited:
+            visited.add(node)
+            for neigbhour in graph[node]:
+                queue.append((neigbhour,path+[neigbhour]))
+            
+
 class Node:
     def __init__(self,data):
         self.data = data 
@@ -38,3 +51,10 @@ r = Node(10)
 r.left = Node(4)
 r.right = Node(3)
 print(is_bst(r))
+
+def isbst(root,min_value = float('-inf'),max_value = float('inf')):
+    if root is None :
+        return True 
+    if not(min_value < root.data < max_value):
+        return False 
+    return isbst(root.left,min_value,root.data) and isbst(root.right,root.data,max_value)

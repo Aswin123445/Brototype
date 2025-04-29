@@ -48,7 +48,7 @@ class Heap:
         return 2*index + 2 
     def push(self,data):
         self.heap.append(data)
-        self.up_heapify(len(self.heap) -1 )
+        self.up_heapify(len(self.heap) - 1 )
     def up_heapify(self,index):
         while index > 0 and self.heap[index] < self.heap[self.get_parent(index)]:
             self.heap[index],self.heap[self.get_parent(index)] = self.heap[self.get_parent(index)],self.heap[index]
@@ -87,7 +87,4 @@ s.push(400)
 s.push(34)
 s.display()
 s.pop()
-s.display()
-       
-       
-        
+s.display()     
